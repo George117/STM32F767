@@ -67,13 +67,7 @@ void _Error_Handler(char * file, int line);
 /* USER CODE END 1 */
 
 /* Variables Initialization */
-//struct netif gnetif;
-//ip4_addr_t ipaddr;
-//ip4_addr_t netmask;
-//ip4_addr_t gw;
-//uint8_t IP_ADDRESS[4];
-//uint8_t NETMASK_ADDRESS[4];
-//uint8_t GATEWAY_ADDRESS[4];
+
 
 /* USER CODE BEGIN 2 */
 
