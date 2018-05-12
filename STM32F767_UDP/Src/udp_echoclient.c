@@ -51,6 +51,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "udp_echoclient.h"
+#include "serial_print.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -61,7 +62,9 @@ void udp_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const
 
 u8_t   data[100];
 
-u8_t   rec_data[100];
+u8_t   rec_data[20];
+
+int recv_data;
 
 __IO uint32_t message_count = 0;
 struct udp_pcb *upcb;
@@ -125,7 +128,6 @@ void udp_echoclient_send(void)
     
     /* send udp data */
     udp_send(upcb, p); 
-    
     /* free pbuf */
     pbuf_free(p);
   }
@@ -143,10 +145,11 @@ void udp_echoclient_send(void)
   */
 void udp_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
-
+int Error;
   /*increment message count */
   message_count++;
-
+  pbuf_copy_partial(p, rec_data, sizeof(*p), 0);
+  serial_print(&rec_data);
   /* Free receive pbuf */
   pbuf_free(p);
 }
