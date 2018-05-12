@@ -53,7 +53,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "serial_print.h"// USART2 TX==PD5, RX==PA3
-
+#include "udp_echoclient.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -85,7 +85,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	unsigned counter=0;//used for delaying  udp trasmission events
   /* USER CODE END 1 */
 
   /* Enable I-Cache-------------------------------------------------------------*/
@@ -118,6 +118,8 @@ int main(void)
   serial_print(clear_screen);
   serial_print("System initialized!");
 
+
+  udp_echoclient_connect();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -127,6 +129,17 @@ int main(void)
 
   /* USER CODE END WHILE */
 	  ethernetif_input(&gnetif);
+
+
+	  if(counter==10000000)
+	  {
+
+		  udp_echoclient_send();
+		  counter=0;
+
+	  }
+
+	  counter++;
   /* USER CODE BEGIN 3 */
 
   }

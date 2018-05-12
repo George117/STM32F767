@@ -54,6 +54,34 @@
 /* Includes ------------------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
+/* Includes ------------------------------------------------------------------*/
+#define DEST_IP_ADDR0   (uint8_t) 192
+#define DEST_IP_ADDR1   (uint8_t) 168
+#define DEST_IP_ADDR2   (uint8_t) 0
+#define DEST_IP_ADDR3   (uint8_t) 100
+
+#define UDP_SERVER_PORT    7   /* define the UDP local connection port */
+#define UDP_CLIENT_PORT    7   /* define the UDP remote connection port */
+
+
+/* USER CODE BEGIN Includes */
+#define IP_ADDR0   (uint8_t) 192
+#define IP_ADDR1   (uint8_t) 168
+#define IP_ADDR2   (uint8_t) 0
+#define IP_ADDR3   (uint8_t) 10
+
+/*NETMASK*/
+#define NETMASK_ADDR0   (uint8_t) 255
+#define NETMASK_ADDR1   (uint8_t) 255
+#define NETMASK_ADDR2   (uint8_t) 255
+#define NETMASK_ADDR3   (uint8_t) 0
+
+/*Gateway Address*/
+#define GW_ADDR0   (uint8_t) 192
+#define GW_ADDR1   (uint8_t) 168
+#define GW_ADDR2   (uint8_t) 0
+#define GW_ADDR3   (uint8_t) 1
+/* USER CODE END Includes */
 
 /* USER CODE END Includes */
 
