@@ -52,6 +52,7 @@
 #include "lwip.h"
 #include "usart.h"
 #include "gpio.h"
+#include "serial_print.h"// USART2 TX==PD5, RX==PA3
 
 /* USER CODE BEGIN Includes */
 
@@ -114,6 +115,8 @@ int main(void)
   MX_LWIP_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  serial_print(clear_screen);
+  serial_print("System initialized!");
 
   /* USER CODE END 2 */
 
@@ -123,7 +126,7 @@ int main(void)
   {
 
   /* USER CODE END WHILE */
-
+	  ethernetif_input(&gnetif);
   /* USER CODE BEGIN 3 */
 
   }
