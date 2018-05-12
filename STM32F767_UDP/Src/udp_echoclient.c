@@ -112,20 +112,26 @@ void udp_echoclient_connect(void)
   * @param port the remote port from which the packet was received
   * @retval None
   */
-void udp_echoclient_send(void)
+void udp_echoclient_send(char *s)
 {
   struct pbuf *p;
   
-  sprintf((char*)data, "Hello World nr: %d", (int)message_count);
+  //sprintf((char*)data, "Hello World nr: %d", (int)message_count);
   
   /* allocate pbuf from pool*/
-  p = pbuf_alloc(PBUF_TRANSPORT,strlen((char*)data), PBUF_POOL);
+  //p = pbuf_alloc(PBUF_TRANSPORT,strlen((char*)data), PBUF_POOL);
+
+
+  p = pbuf_alloc(PBUF_TRANSPORT,strlen((char*)s), PBUF_POOL);
+
   
   if (p != NULL)
   {
     /* copy data to pbuf */
-    pbuf_take(p, (char*)data, strlen((char*)data));
-    
+    //pbuf_take(p, (char*)data, strlen((char*)data));
+	  pbuf_take(p, (char*)s, strlen((char*)s));
+
+
     /* send udp data */
     udp_send(upcb, p); 
     /* free pbuf */

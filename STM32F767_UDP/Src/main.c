@@ -134,7 +134,7 @@ int main(void)
 	  if(counter==10000000)
 	  {
 
-		  udp_echoclient_send();
+		  udp_echoclient_send("Hello World from STM32F7");
 		  counter=0;
 
 	  }
