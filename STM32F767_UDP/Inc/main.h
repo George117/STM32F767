@@ -55,6 +55,14 @@
 
 /* USER CODE BEGIN Includes */
 /* Includes ------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
 #define DEST_IP_ADDR0   (uint8_t) 192
 #define DEST_IP_ADDR1   (uint8_t) 168
 #define DEST_IP_ADDR2   (uint8_t) 0

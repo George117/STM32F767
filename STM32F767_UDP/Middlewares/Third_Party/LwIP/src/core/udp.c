@@ -68,8 +68,8 @@
 #ifndef UDP_LOCAL_PORT_RANGE_START
 /* From http://www.iana.org/assignments/port-numbers:
    "The Dynamic and/or Private Ports are those from 49152 through 65535" */
-#define UDP_LOCAL_PORT_RANGE_START  0xc000
-#define UDP_LOCAL_PORT_RANGE_END    0xffff
+#define UDP_LOCAL_PORT_RANGE_START 0xc000 //0x5dc //0xc000   ---force port 1500
+#define UDP_LOCAL_PORT_RANGE_END   0xffff //0x5dc //0xffff
 #define UDP_ENSURE_LOCAL_PORT_RANGE(port) ((u16_t)(((port) & ~UDP_LOCAL_PORT_RANGE_START) + UDP_LOCAL_PORT_RANGE_START))
 #endif
 
@@ -115,6 +115,8 @@ again:
       goto again;
     }
   }
+  udp_port=1500;//force port 1500 for receiving
+
   return udp_port;
 }
 

@@ -97,10 +97,10 @@ void udp_echoclient_connect(void)
     {
       /* Set a receive callback for the upcb */
       udp_recv(upcb, udp_receive_callback, NULL);
-      serial_print("udp_recv");
+
     }
   }
-  serial_print("udp_echoclient_connect");
+  serial_print("UDP connection Live!");
 }
 
 /**
@@ -137,7 +137,7 @@ void udp_echoclient_send(char *go_outside)
     /* free pbuf */
     pbuf_free(p);
   }
-  serial_print("udp_echoclient_send");
+  //serial_print("udp_echoclient_send");
 }
 
 /**
@@ -155,6 +155,7 @@ void udp_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const
 
   pbuf_copy_partial(p, rec_data, sizeof(*p), 0);// copy from receive buffer to rec_data
 
+  udp_echoclient_send("Message received!");
 
   serial_print(&rec_data);
   /* Free receive pbuf */

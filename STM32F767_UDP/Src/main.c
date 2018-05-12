@@ -54,6 +54,7 @@
 #include "gpio.h"
 #include "serial_print.h"// USART2 TX==PD5, RX==PA3
 #include "udp_echoclient.h"
+#include "XcpBasic.h"
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
@@ -122,6 +123,8 @@ int main(void)
   udp_echoclient_connect();
   /* USER CODE END 2 */
 
+
+  serial_print("Going to main loop!");
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -134,7 +137,7 @@ int main(void)
 	  if(counter==10000000)
 	  {
 
-		  udp_echoclient_send("Hello World from STM32F7");
+		  udp_echoclient_send("Main Loop");
 		  counter=0;
 
 	  }
