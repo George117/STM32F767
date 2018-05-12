@@ -53,7 +53,7 @@
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void udp_echoclient_connect(void);
-void udp_echoclient_send(char *s);
+void udp_echoclient_send(char *go_outside);
 
 #endif /* __UDP_ECHOCLIENT_H__ */
 

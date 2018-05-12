@@ -112,24 +112,24 @@ void udp_echoclient_connect(void)
   * @param port the remote port from which the packet was received
   * @retval None
   */
-void udp_echoclient_send(char *s)
+void udp_echoclient_send(char *go_outside)
 {
   struct pbuf *p;
   
   //sprintf((char*)data, "Hello World nr: %d", (int)message_count);
   
   /* allocate pbuf from pool*/
-  //p = pbuf_alloc(PBUF_TRANSPORT,strlen((char*)data), PBUF_POOL);
 
 
-  p = pbuf_alloc(PBUF_TRANSPORT,strlen((char*)s), PBUF_POOL);
+
+  p = pbuf_alloc(PBUF_TRANSPORT,strlen((char*)go_outside), PBUF_POOL);
 
   
   if (p != NULL)
   {
     /* copy data to pbuf */
-    //pbuf_take(p, (char*)data, strlen((char*)data));
-	  pbuf_take(p, (char*)s, strlen((char*)s));
+
+	  pbuf_take(p, (char*)go_outside, strlen((char*)go_outside));
 
 
     /* send udp data */
@@ -151,10 +151,11 @@ void udp_echoclient_send(char *s)
   */
 void udp_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
-int Error;
-  /*increment message count */
-  message_count++;
-  pbuf_copy_partial(p, rec_data, sizeof(*p), 0);
+
+
+  pbuf_copy_partial(p, rec_data, sizeof(*p), 0);// copy from receive buffer to rec_data
+
+
   serial_print(&rec_data);
   /* Free receive pbuf */
   pbuf_free(p);
