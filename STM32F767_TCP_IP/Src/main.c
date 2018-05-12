@@ -121,7 +121,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  serial_print("System initialized!");
   while (1)
   {
 
