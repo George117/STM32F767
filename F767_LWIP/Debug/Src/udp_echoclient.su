@@ -1,3 +1,0 @@
-udp_echoclient.c:144:6:udp_receive_callback	0	static
-udp_echoclient.c:77:6:udp_echoclient_connect	16	static
-udp_echoclient.c:112:6:udp_echoclient_send	8	static
